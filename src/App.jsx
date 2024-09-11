@@ -1,4 +1,6 @@
 import FakeStoreCategories from "./Tasks/Categories/FakeStoreCategories"
+import GlobalCounter from "./Tasks/GlobalCounter/globalCounter"
+import NavigationStack from "./Tasks/Navigation/NavigationStack"
 
 
 
@@ -6,7 +8,9 @@ import FakeStoreCategories from "./Tasks/Categories/FakeStoreCategories"
 
 function App() {
    return(
-    <FakeStoreCategories/>
+    <>
+        <GlobalCounter/>
+    </>
     
    )
 }
