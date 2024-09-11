@@ -1,12 +1,12 @@
+import FakeStoreCategories from "./Tasks/Categories/FakeStoreCategories"
 
 
 
-import CustomForm from "./Tasks/UncontrolledForm/unControlledForm"
 
 
 function App() {
    return(
-    <CustomForm/>
+    <FakeStoreCategories/>
     
    )
 }
