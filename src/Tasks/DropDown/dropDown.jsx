@@ -1,33 +1,65 @@
-import React, { useState } from 'react';
-import { CountrySelect, StateSelect, CitySelect } from 'react-country-state-city';
-import 'react-country-state-city/dist/react-country-state-city.css';
+import React, { useState } from "react";
 
-function DropDownMenu() {
-    const [countryId, setCountryId] = useState(null);
-    const [stateId, setStateId] = useState(null);
+const countryStateMapping = {
+  USA: ["California", "Texas", "Florida", "New York"],
+  Canada: ["Ontario", "Quebec", "British Columbia"],
+  Australia: ["New South Wales", "Victoria", "Queensland"],
+  India: ["Telangana", "Andhra pradesh", "Delhi" ,"Goa"],
+};
 
-    return (
+const CountryStateDropdown = () => {
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [stateOptions, setStateOptions] = useState([]);
+  const [selectedState, setSelectedState] = useState("");
+
+  const handleCountryChange = (event) => {
+    const country = event.target.value;
+    setSelectedCountry(country);
+    setStateOptions(countryStateMapping[country] || []);
+    setSelectedState(""); 
+  };
+
+  const handleStateChange = (event) => {
+    setSelectedState(event.target.value);
+  };
+
+  return (
+    <div>
+      <label>
+        Select Country:
+        <select value={selectedCountry} onChange={handleCountryChange}>
+          <option value="">Select a country</option>
+          {Object.keys(countryStateMapping).map((country) => (
+            <option key={country} value={country}>
+              {country}
+            </option>
+          ))}
+        </select>
+      </label>
+
+      {selectedCountry && (
+        <label>
+          Select State:
+          <select value={selectedState} onChange={handleStateChange}>
+            <option value="">Select a state</option>
+            {stateOptions.map((state) => (
+              <option key={state} value={state}>
+                {state}
+              </option>
+            ))}
+          </select>
+        </label>
+      )}
+
+      {selectedCountry && selectedState && (
         <div>
-            <h6>Country</h6>
-            <CountrySelect
-                onChange={(e) => setCountryId(e.id)}
-                placeHolder="Select Country"
-            />
-            <h6>State</h6>
-            <StateSelect
-                countryId={countryId}
-                onChange={(e) => setStateId(e.id)}
-                placeHolder="Select State"
-            />
-            <h6>City</h6>
-            <CitySelect
-                countryId={countryId}
-                stateId={stateId}
-                onChange={(e) => console.log(e)}
-                placeHolder="Select City"
-            />
+          <h3>
+            You selected {selectedState} from {selectedCountry}
+          </h3>
         </div>
-    );
-}
+      )}
+    </div>
+  );
+};
 
-export default DropDownMenu;
+export default CountryStateDropdown;
