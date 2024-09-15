@@ -1,6 +1,7 @@
-import FakeStoreCategories from "./Tasks/Categories/FakeStoreCategories"
-import GlobalCounter from "./Tasks/GlobalCounter/globalCounter"
+
 import NavigationStack from "./Tasks/Navigation/NavigationStack"
+import CustomReducer from "./Tasks/Reducer/useReducer"
+import WeatherApi from "./Tasks/WeatherApi/weatherApi"
 
 
 
@@ -9,7 +10,7 @@ import NavigationStack from "./Tasks/Navigation/NavigationStack"
 function App() {
    return(
     <>
-        <GlobalCounter/>
+       <WeatherApi/>
     </>
     
    )

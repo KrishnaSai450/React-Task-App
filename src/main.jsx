@@ -7,7 +7,9 @@ import NavigationStack from './Tasks/Navigation/NavigationStack.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    {/* <NavigationStack/>  */}
+    <App/>
     
-  </StrictMode>,
+  </StrictMode>
 )
+

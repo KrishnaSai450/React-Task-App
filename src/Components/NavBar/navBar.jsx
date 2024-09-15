@@ -1,4 +1,5 @@
-import  {Link, NavLink}  from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
+import "./navBar.css"
 
 
 const CustomNavBar = ()=>{
@@ -7,19 +8,19 @@ const CustomNavBar = ()=>{
         <>
         <ul className="nav">
         <li className="nav-item">
-          <Link to="/" style={{textDecoration:"none",color:"red",margin:"10px"}}>Home</Link>
+          <NavLink to={"/"}>Home</NavLink>
         </li>
         <li className="nav-item">
-          <Link  to="/about" style={{textDecoration:"none",color:"red",margin:"10px"}}>About</Link>
+          <NavLink to={"jewellery"}>Jewellery</NavLink>
         </li>
         <li className="nav-item">
-          <Link to="/setting" style={{textDecoration:"none",color:"red",margin:"10px"}}>Setting</Link>
+          <NavLink to={"electronics"}>Electronics</NavLink>
         </li>
         <li className="nav-item">
-          <Link to="/logIn" style={{textDecoration:"none",color:"red",margin:"10px"}}>LogIn</Link>
+          <NavLink to={"mensclothing"}>Mens Clothing</NavLink>
         </li>
         <li className="nav-item">
-          <Link to="/register" style={{textDecoration:"none",color:"red",margin:"10px"}}>Register</Link>
+          <NavLink to={"womensclothing"}>Womens Clothing</NavLink>
         </li>
         
       </ul>
